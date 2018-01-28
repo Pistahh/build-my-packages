@@ -26,19 +26,19 @@ cp $FZFDIR/bin/fzf $TREE/usr/bin/
 cp $FZFDIR/bin/fzf-tmux $TREE/usr/bin/
 cp -r $FZFDIR/shell $TREE/usr/share/fzf
 
-fpm -t deb \
-    -s dir \
-    -C $TREE \
-    -p $OUTPUTDIR \
-    -n fzf \
-    -v $FZF_VERSION-$SUFFIX \
-    -a $(uname -m) \
-    -m "Istvan Szekeres (@pistahh) <szekeres@iii.hu>" \
-    --vendor "Istvan Szekeres" \
-    -S $SUFFIX \
-    --description "A command-line fuzzy finder" \
-    --url "https://github.com/junegunn/fzf" \
-    --deb-no-default-config-files \
-    --license MIT \
-    --force
-
+docker run -t -v $TREE:/tree -v $OUTPUTDIR:/output fpm \
+    fpm -t deb \
+        -s dir \
+        -C /tree \
+        -p /output \
+        -n fzf \
+        -v $FZF_VERSION-$SUFFIX \
+        -a $(uname -m) \
+        -m "Istvan Szekeres (@pistahh) <szekeres@iii.hu>" \
+        --vendor "Istvan Szekeres" \
+        -S $SUFFIX \
+        --description "A command-line fuzzy finder" \
+        --url "https://github.com/junegunn/fzf" \
+        --deb-no-default-config-files \
+        --license MIT \
+        --force
