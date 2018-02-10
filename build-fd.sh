@@ -9,4 +9,5 @@ $MYDIR/package-cargo.sh \
     -c fd-find \
     -d "A simple, fast and user-friendly alternative to find." \
     -l MIT \
-    -u "https://github.com/sharkdp/fd"
+    -u "https://github.com/sharkdp/fd" \
+    "$@"

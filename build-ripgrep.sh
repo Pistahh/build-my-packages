@@ -9,4 +9,5 @@ $MYDIR/package-cargo.sh \
     -c ripgrep \
     -d "A line-oriented search tool" \
     -l MIT \
-    -u "https://github.com/BurntSushi/ripgrep"
+    -u "https://github.com/BurntSushi/ripgrep" \
+    "$@"
