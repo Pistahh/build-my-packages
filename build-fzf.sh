@@ -2,6 +2,12 @@
 
 SUFFIX=pistahh
 
+while getopts "s:" opt; do
+    case "$opt" in
+        s) SUFFIX="$OPTARG" ;;
+    esac
+done
+
 MYDIR="$(readlink -f $(dirname $0))"
 FZFBASE=$MYDIR/build/fzf
 FZFDIR=$FZFBASE/fzf
