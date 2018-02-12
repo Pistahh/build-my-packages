@@ -37,7 +37,7 @@ docker run \
     rust \
     cargo install --root /cargo $CARGO_PACKAGE
 
-VERSION=$($OUTPUTDIR/$BINARY --version|head -1|sed 's/.* //')
+VERSION=$($OUTPUTDIR/$BINARY --version|head -1|sed 's/\S\+\s\+\(\S\+\).*/\1/')
 
 rm -rf $TREE
 mkdir -p $TREE/usr/bin
